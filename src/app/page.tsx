@@ -3,8 +3,10 @@ import { ImageItem, ImageList, NavBar, SearchBox } from '@/components'
 
 async function getImageList() {
   try {
-    const { data } = await axios.get<AppTypes.ApiResponse>(`${process.env.API_URL}?key=${process.env.API_KEY}`, {
-      params: { orientation: 'horizontal' },
+    const { API_KEY, API_URL } = process.env
+
+    const { data } = await axios.get<AppTypes.ApiResponse>(API_URL, {
+      params: { key: API_KEY, orientation: 'horizontal', safesearch: true },
     })
 
     return data.hits
