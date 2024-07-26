@@ -1,3 +1,4 @@
+import daisyui from 'daisyui'
 import tailwindFluid, { extract, fontSize, screens } from 'fluid-tailwind'
 // @ts-ignore
 import tailwindCSSTouch from 'tailwindcss-touch'
@@ -20,7 +21,7 @@ const tailwindConfig = {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [tailwindFluid, tailwindCSSTouch()],
+  plugins: [daisyui, tailwindFluid, tailwindCSSTouch()],
 }
 
 export default tailwindConfig
