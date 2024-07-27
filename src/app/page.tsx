@@ -1,7 +1,24 @@
+import type { Slide } from 'yet-another-react-lightbox'
 import axios from 'axios'
-import { ImageItem, ImageList, NavBar, SearchBox } from '@/components'
+import { unstable_cache } from 'next/cache'
+import { ImageItem, ImageList, ImageSlider, NavBar, SearchBox } from '@/components'
 
-async function getImageList() {
+export default async function Home() {
+  const images = await getImageList()
+  const slides = await cachedList(images)
+
+  return (
+    <main>
+      <NavBar>
+        <SearchBox />
+      </NavBar>
+      <ImageList>{images?.map((item, index) => <ImageItem key={item.id} index={index + 1} {...item} />)}</ImageList>
+      <ImageSlider slides={slides} />
+    </main>
+  )
+}
+
+const getImageList = async () => {
   try {
     const { API_KEY, API_URL } = process.env
 
@@ -10,22 +27,23 @@ async function getImageList() {
     })
 
     return data.hits
-  } catch (error) {
-    console.log(error)
+  } catch {
+    return []
   }
 }
 
-export default async function Home() {
-  const list = await getImageList()
+const toSlideList = async (images: AppTypes.ImageData[]) => {
+  const slides = images.reduce<Slide[]>((acc, curr) => {
+    acc.push({
+      src: curr.largeImageURL,
+      height: curr.imageHeight,
+      width: curr.imageWidth,
+    })
 
-  return (
-    <main>
-      <NavBar>
-        <SearchBox />
-      </NavBar>
-      <ImageList>
-        {list?.map((item, index) => <ImageItem key={crypto.randomUUID()} index={index} {...item} />)}
-      </ImageList>
-    </main>
-  )
+    return acc
+  }, [])
+
+  return slides
 }
+
+const cachedList = unstable_cache(toSlideList, ['slides'])
