@@ -32,7 +32,7 @@
     "@typescript-eslint/consistent-type-definitions": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/ban-ts-comment": "off",
-    "import/no-named-as-default": "off",
+    "import/consistent-type-specifier-style": ["warn", "prefer-top-level"],
     "import/order": [
       "warn",
       {
