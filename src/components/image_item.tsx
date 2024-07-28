@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { FaEye, FaHeart } from 'react-icons/fa'
+import { FaEye, FaHeart } from 'react-icons/fa6'
 import { getPlaceholderImage } from '@/utils'
 
 interface ImageItemProps extends AppTypes.ImageData {
@@ -24,7 +24,7 @@ export default async function ImageItem({
         <Image
           alt={tags}
           blurDataURL={placeholderImage}
-          className='select-none object-cover object-center contrast-125 transition-all duration-500 group-hover:motion-safe:scale-125'
+          className='h-full select-none object-cover object-center contrast-125 transition-all duration-500 group-hover:motion-safe:scale-125'
           height={webformatHeight}
           placeholder='blur'
           src={webformatURL}

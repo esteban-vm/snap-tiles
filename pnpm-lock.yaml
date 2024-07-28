@@ -126,6 +126,9 @@ importers:
       tailwind-merge:
         specifier: ^2.4.0
         version: 2.4.0
+      tailwind-mobile-hover:
+        specifier: ^1.0.0
+        version: 1.0.0(tailwindcss@3.4.6)
       tailwindcss:
         specifier: ^3.4.6
         version: 3.4.6
@@ -2887,6 +2890,11 @@ packages:
 
   tailwind-merge@2.4.0:
     resolution: {integrity: sha512-49AwoOQNKdqKPd9CViyH5wJoSKsCDjUlzL8DxuGp3P1FsGY36NJDAa18jLZcaHAUUuTj+JB8IAo8zWgBNvBF7A==}
+
+  tailwind-mobile-hover@1.0.0:
+    resolution: {integrity: sha512-x2Z7qg0GWIspIsu9WYpwwcV1CJlHvdFuj3o4lfQNtBxnlfpCbn8PbWiLy3RkByzElSdsMepFAtMWM85WG4nO3g==}
+    peerDependencies:
+      tailwindcss: ^3.2.7
 
   tailwind-styled-components@2.2.0:
     resolution: {integrity: sha512-Ogemwk0p69aU8WE/ooJZHjqstdJgT5R6HGU6TFz2uSnveSEtvW+C6aWOjGCvCr5H/bREv0IbbQ4yODknRrLBRQ==}
@@ -6180,6 +6188,10 @@ snapshots:
   tailwind-merge@1.14.0: {}
 
   tailwind-merge@2.4.0: {}
+
+  tailwind-mobile-hover@1.0.0(tailwindcss@3.4.6):
+    dependencies:
+      tailwindcss: 3.4.6
 
   tailwind-styled-components@2.2.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:

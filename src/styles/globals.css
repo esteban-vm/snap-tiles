@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 @import 'yet-another-react-lightbox/styles.css';
+
+@layer base {
+  * {
+    @apply font-reddit-sans;
+  }
+}

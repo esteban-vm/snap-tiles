@@ -1,7 +1,9 @@
 import daisyui from 'daisyui'
 import tailwindFluid, { extract, fontSize, screens } from 'fluid-tailwind'
 // @ts-ignore
-import tailwindCSSTouch from 'tailwindcss-touch'
+import tailwindMobileHover from 'tailwind-mobile-hover'
+// @ts-ignore
+import tailwindTouch from 'tailwindcss-touch'
 
 /** @type {import("tailwindcss").Config} */
 const tailwindConfig = {
@@ -16,12 +18,12 @@ const tailwindConfig = {
       fontSize: {
         '2xs': '0.625rem',
       },
+      fontFamily: {
+        'reddit-sans': 'var(--font-reddit-sans)',
+      },
     },
   },
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
-  plugins: [daisyui, tailwindFluid, tailwindCSSTouch()],
+  plugins: [daisyui, tailwindFluid, tailwindTouch(), tailwindMobileHover],
 }
 
 export default tailwindConfig

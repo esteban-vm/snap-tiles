@@ -32,6 +32,7 @@
     "@typescript-eslint/consistent-type-definitions": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/ban-ts-comment": "off",
+    "jsx-a11y/label-has-associated-control": "off",
     "import/consistent-type-specifier-style": ["warn", "prefer-top-level"],
     "import/order": [
       "warn",
