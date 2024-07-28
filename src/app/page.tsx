@@ -12,7 +12,7 @@ export default async function Home() {
       <NavBar>
         <SearchBox />
       </NavBar>
-      <ImageList>{images?.map((item, index) => <ImageItem key={item.id} index={index + 1} {...item} />)}</ImageList>
+      <ImageList>{images.map((item, index) => <ImageItem key={item.id} index={index + 1} {...item} />)}</ImageList>
       <ImageSlider slides={slides} />
     </main>
   )

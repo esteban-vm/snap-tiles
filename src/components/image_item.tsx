@@ -19,12 +19,12 @@ export default async function ImageItem({
   const placeholderImage = await getPlaceholderImage(webformatURL)
 
   return (
-    <div className='card h-96 w-auto bg-base-100 shadow-xl'>
+    <div className='group card h-96 w-auto border border-base-200 bg-base-100 shadow-xl'>
       <figure className='h-1/2 overflow-hidden'>
         <Image
           alt={tags}
           blurDataURL={placeholderImage}
-          className='object-cover object-center contrast-125 transition-all duration-500 hover:scale-125'
+          className='select-none object-cover object-center contrast-125 transition-all duration-500 group-hover:motion-safe:scale-125'
           height={webformatHeight}
           placeholder='blur'
           src={webformatURL}
@@ -33,25 +33,27 @@ export default async function ImageItem({
       </figure>
       <div className='card-body h-1/2'>
         <h2 className='card-title'>
-          <span className='badge badge-primary' title='Result number'>
-            Nº {index}
-          </span>
-          <span className='badge badge-secondary' title='Type'>
-            {type}
-          </span>
+          <div className='tooltip tooltip-primary' data-tip='Image number'>
+            <span className='badge badge-primary px-4 py-3 uppercase'>Nº {index}</span>
+          </div>
+          <div className='tooltip tooltip-secondary' data-tip='Image type'>
+            <span className='badge badge-secondary px-4 py-3 uppercase'>{type}</span>
+          </div>
         </h2>
-        <p>{tags}</p>
+        <p className='capitalize'>{tags}</p>
         <div className='card-actions justify-end'>
-          <span className='badge badge-outline px-4 py-3' title='Views'>
-            <FaEye className='text-blue-500' />
-            &nbsp;
-            {views}
-          </span>
-          <span className='badge badge-outline px-4 py-3' title='Likes'>
-            <FaHeart className='text-red-500' />
-            &nbsp;
-            {likes}
-          </span>
+          <div className='tooltip' data-tip='Views'>
+            <span className='badge badge-info badge-outline gap-2 px-4 py-3'>
+              <FaEye className='text-primary' />
+              {views}
+            </span>
+          </div>
+          <div className='tooltip' data-tip='Likes'>
+            <span className='badge badge-info badge-outline gap-2 px-4 py-3'>
+              <FaHeart className='text-secondary' />
+              {likes}
+            </span>
+          </div>
         </div>
       </div>
     </div>
