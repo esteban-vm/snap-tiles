@@ -1,5 +1,5 @@
 import type { AxiosRequestConfig } from 'axios'
-import type { Slide } from 'yet-another-react-lightbox'
+import type { SlideImage } from 'yet-another-react-lightbox'
 import axios from 'axios'
 import { unstable_cache } from 'next/cache'
 
@@ -25,17 +25,16 @@ export async function getImages() {
 
 export const getSlides = unstable_cache(
   async (images: AppTypes.ImageData[]) => {
-    const slides = images.reduce<Slide[]>((previousValue, currentValue) => {
-      previousValue.push({
-        src: currentValue.largeImageURL,
-        height: currentValue.imageHeight,
-        width: currentValue.imageWidth,
+    return images.reduce<SlideImage[]>((slides, image) => {
+      slides.push({
+        src: image.largeImageURL,
+        height: image.imageHeight,
+        width: image.imageWidth,
       })
 
-      return previousValue
+      return slides
     }, [])
-
-    return slides
   },
+
   ['slides']
 )
