@@ -21,9 +21,9 @@ function toBase64PNG(str: string) {
   return `data:image/png;base64,${str}`
 }
 
-export async function getPlaceholder(filepath: string) {
+export async function getPlaceholder(str: string) {
   try {
-    const originalBuffer = await getFileBuffer(filepath)
+    const originalBuffer = await getFileBuffer(str)
     const resizedBuffer = await sharp(originalBuffer).resize(20).toBuffer()
     return toBase64PNG(resizedBuffer.toString('base64'))
   } catch {
