@@ -1,5 +1,5 @@
-export { default as ImageItem } from './image_item'
-export { default as ImageList } from './image_list'
+export { default as ImageCard } from './image_card'
+export { default as ImageContainer } from './image_container'
 export { default as ImageSlider } from './image_slider'
 export { default as NavBar } from './nav_bar'
 export { default as SearchBox } from './search_box'

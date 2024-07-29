@@ -1,4 +1,4 @@
-import { promises as fs } from 'fs'
+import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
 
@@ -9,7 +9,7 @@ async function getFileBufferRemote(url: string) {
 
 async function getFileBufferLocal(filepath: string) {
   const realFilepath = path.join(process.cwd(), 'public', filepath)
-  return await fs.readFile(realFilepath)
+  return await fs.promises.readFile(realFilepath)
 }
 
 function getFileBuffer(src: string) {
