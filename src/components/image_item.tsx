@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { FaEye, FaHeart } from 'react-icons/fa6'
-import { getPlaceholderImage } from '@/utils'
+import { image } from '@/utils'
 
 interface ImageItemProps extends AppTypes.ImageData {
   index: number
@@ -16,7 +16,7 @@ export default async function ImageItem({
   webformatHeight,
   webformatWidth,
 }: ImageItemProps) {
-  const placeholderImage = await getPlaceholderImage(webformatURL)
+  const placeholderImage = await image.getPlaceholder(webformatURL)
 
   return (
     <div className='group card h-96 w-auto border border-base-200 bg-base-100 shadow-xl'>
