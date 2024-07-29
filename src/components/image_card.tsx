@@ -1,13 +1,17 @@
+'use client'
+
 import Image from 'next/image'
 import { FaEye, FaHeart } from 'react-icons/fa6'
-import { image } from '@/utils'
 
-interface ImageItemProps extends AppTypes.ImageData {
+interface ImageCardProps extends AppTypes.ImageData {
   index: number
+  placeholder: string
 }
 
-export default async function ImageItem({
+export default function ImageCard({
   index,
+  placeholder,
+  id,
   likes,
   tags,
   type,
@@ -15,20 +19,19 @@ export default async function ImageItem({
   webformatURL,
   webformatHeight,
   webformatWidth,
-}: ImageItemProps) {
-  const placeholderImage = await image.getPlaceholder(webformatURL)
-
+}: ImageCardProps) {
   return (
     <div className='group card h-96 w-auto border border-base-200 bg-base-100 shadow-xl'>
-      <figure className='h-1/2 overflow-hidden'>
+      <figure className='h-1/2 cursor-pointer select-none overflow-hidden'>
         <Image
           alt={tags}
-          blurDataURL={placeholderImage}
-          className='h-full select-none object-cover object-center contrast-125 transition-all duration-500 group-hover:motion-safe:scale-125'
+          blurDataURL={placeholder}
+          className='h-full object-cover object-center contrast-125 transition-all duration-500 group-hover:motion-safe:scale-125'
           height={webformatHeight}
           placeholder='blur'
           src={webformatURL}
           width={webformatWidth}
+          onClick={() => console.log(id)}
         />
       </figure>
       <div className='card-body h-1/2'>
