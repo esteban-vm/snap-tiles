@@ -6,14 +6,10 @@ export default async function Home() {
   const slides = await Api.getSlides(images)
 
   const imageCards = await Promise.all(
-    images.map(async (image, index) => (
-      <ImageCard
-        key={image.id}
-        index={index + 1}
-        placeholder={await Image.getPlaceholder(image.webformatURL)}
-        {...image}
-      />
-    ))
+    images.map(async (image, index) => {
+      const placeholder = await Image.getPlaceholder(image.webformatURL)
+      return <ImageCard key={image.id} index={index + 1} placeholder={placeholder} {...image} />
+    })
   )
 
   return (
