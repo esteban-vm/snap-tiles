@@ -16,7 +16,7 @@ export function SliderContextProvider(props: { children: ReactNode }) {
   const value: ISliderContext = {
     currentIndex,
     hide: () => setCurrentIndex(-1),
-    show: (index) => setCurrentIndex(index),
+    show: setCurrentIndex,
     isOpen: currentIndex >= 0,
   }
 

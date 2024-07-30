@@ -1,2 +1,3 @@
 export * as Api from './api.utils'
-export * as Images from './images.utils'
+export * from './images.utils'
+export * from './styles.utils'

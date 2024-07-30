@@ -1,6 +1,6 @@
 import { ImageCard, ImageContainer, ImageSlider, NavBar, SearchBox } from '@/components'
 import { SliderContextProvider } from '@/contexts'
-import { Api, Images } from '@/utils'
+import { Api, getPlaceholderImage } from '@/utils'
 
 export default async function Home() {
   const images = await Api.getImages()
@@ -8,7 +8,7 @@ export default async function Home() {
 
   const cards = await Promise.all(
     images.map(async (image, index) => {
-      const placeholder = await Images.getPlaceholder(image.webformatURL)
+      const placeholder = await getPlaceholderImage(image.webformatURL)
       return <ImageCard key={image.id} index={index} placeholder={placeholder} {...image} />
     })
   )
