@@ -1,3 +1,5 @@
+'use server'
+
 import type { AxiosRequestConfig } from 'axios'
 import type { SlideImage } from 'yet-another-react-lightbox'
 import axios from 'axios'

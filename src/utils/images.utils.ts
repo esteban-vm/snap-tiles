@@ -1,3 +1,5 @@
+'use server'
+
 import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
@@ -21,7 +23,7 @@ function toBase64PNG(str: string) {
   return `data:image/png;base64,${str}`
 }
 
-export async function getPlaceholder(str: string) {
+export async function getPlaceholderImage(str: string) {
   try {
     const originalBuffer = await getFileBuffer(str)
     const resizedBuffer = await sharp(originalBuffer).resize(20).toBuffer()
