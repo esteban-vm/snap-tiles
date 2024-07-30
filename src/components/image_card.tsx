@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { FaEye, FaHeart } from 'react-icons/fa6'
+import { useSliderContext } from '@/contexts'
 
 interface ImageCardProps extends AppTypes.ImageData {
   index: number
@@ -20,6 +21,8 @@ export default function ImageCard({
   webformatHeight,
   webformatWidth,
 }: ImageCardProps) {
+  const { show } = useSliderContext()
+
   return (
     <div className='group card h-96 w-auto border border-base-200 bg-base-100 shadow-xl'>
       <figure className='h-1/2 cursor-pointer select-none overflow-hidden'>
@@ -28,16 +31,17 @@ export default function ImageCard({
           blurDataURL={placeholder}
           className='h-full object-cover object-center contrast-125 transition-all duration-500 group-hover:motion-safe:scale-125'
           height={webformatHeight}
+          id={id.toString()}
           placeholder='blur'
           src={webformatURL}
           width={webformatWidth}
-          onClick={() => console.log(id)}
+          onClick={() => show(index)}
         />
       </figure>
       <div className='card-body h-1/2'>
         <h2 className='card-title'>
           <div className='tooltip tooltip-primary' data-tip='Image number'>
-            <span className='badge badge-primary px-4 py-3 uppercase'>Nº {index}</span>
+            <span className='badge badge-primary px-4 py-3 uppercase'>Nº {index + 1}</span>
           </div>
           <div className='tooltip tooltip-secondary' data-tip='Image type'>
             <span className='badge badge-secondary px-4 py-3 uppercase'>{type}</span>
