@@ -1,2 +1,2 @@
-export * as Api from './api'
-export * as Images from './images'
+export * as Api from './api.utils'
+export * as Images from './images.utils'
