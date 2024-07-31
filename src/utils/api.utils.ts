@@ -29,6 +29,7 @@ export const getSlides = unstable_cache(
   async (images: AppTypes.ImageData[]) => {
     return images.reduce<SlideImage[]>((slides, image) => {
       slides.push({
+        alt: image.tags,
         src: image.largeImageURL,
         height: image.imageHeight,
         width: image.imageWidth,
