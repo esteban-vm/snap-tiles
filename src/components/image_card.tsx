@@ -1,10 +1,11 @@
 'use client'
 
+import type { ImageData } from '@/types'
 import Image from 'next/image'
 import { FaEye, FaHeart } from 'react-icons/fa6'
 import { useSliderContext } from '@/contexts'
 
-interface ImageCardProps extends AppTypes.ImageData {
+interface ImageCardProps extends ImageData {
   index: number
   placeholder: string
 }
