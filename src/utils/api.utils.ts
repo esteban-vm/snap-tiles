@@ -1,5 +1,6 @@
 'use server'
 
+import type { ApiResponse, ImageData } from '@/types'
 import type { AxiosRequestConfig } from 'axios'
 import type { SlideImage } from 'yet-another-react-lightbox'
 import axios from 'axios'
@@ -18,7 +19,7 @@ const apiInstance = axios.create(apiConfig)
 
 export async function getImages() {
   try {
-    const { data } = await apiInstance.get<AppTypes.ApiResponse>('/')
+    const { data } = await apiInstance.get<ApiResponse>('/')
     return data.hits
   } catch {
     return []
@@ -26,7 +27,7 @@ export async function getImages() {
 }
 
 export const getSlides = unstable_cache(
-  async (images: AppTypes.ImageData[]) => {
+  async (images: ImageData[]) => {
     return images.reduce<SlideImage[]>((slides, image) => {
       slides.push({
         alt: image.tags,
