@@ -9,3 +9,13 @@
     @apply font-reddit-sans;
   }
 }
+
+.yarl__button {
+  @apply p-0;
+}
+
+.yarl__slide {
+  img {
+    @apply cursor-grab active:cursor-grabbing;
+  }
+}
