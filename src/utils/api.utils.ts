@@ -17,9 +17,9 @@ const apiConfig: AxiosRequestConfig = {
 
 const apiInstance = axios.create(apiConfig)
 
-export async function getImages() {
+export async function getImages(query?: string) {
   try {
-    const { data } = await apiInstance.get<ApiResponse>('/')
+    const { data } = await apiInstance.get<ApiResponse>('/', { params: { q: query } })
     return data.hits
   } catch {
     return []
