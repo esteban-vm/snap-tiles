@@ -8,6 +8,7 @@ import { unstable_cache } from 'next/cache'
 
 const apiConfig: AxiosRequestConfig = {
   baseURL: process.env.API_URL,
+  timeout: 5_000,
   params: {
     key: process.env.API_KEY,
     orientation: 'horizontal',
