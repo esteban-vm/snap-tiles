@@ -1,1 +1,1 @@
-## Starter template
+## Simple Image Searcher App
