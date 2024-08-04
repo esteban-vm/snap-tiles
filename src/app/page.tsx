@@ -1,29 +1,13 @@
-import { ImageCard, ImageContainer, ImageSlider, NavBar, SearchBox } from '@/components'
-import { SliderContextProvider } from '@/contexts'
-import { Api, getPlaceholderImage } from '@/utils'
+import { Suspense } from 'react'
+import { LoadingSpinner } from '@/components'
+import { Images } from '@/containers'
 
-export default async function Home() {
-  const images = await Api.getImages()
-  const slides = await Api.getSlides(images)
-
-  const cards = await Promise.all(
-    images.map(async (image, index) => {
-      const placeholder = await getPlaceholderImage(image.webformatURL)
-      return <ImageCard key={image.id} index={index} placeholder={placeholder} {...image} />
-    })
-  )
+export default async function Home({ searchParams }: { searchParams?: { query?: string } }) {
+  const query = searchParams?.query
 
   return (
-    <main>
-      <NavBar>
-        <SearchBox />
-      </NavBar>
-      <ImageContainer>
-        <SliderContextProvider>
-          {cards}
-          <ImageSlider slides={slides} />
-        </SliderContextProvider>
-      </ImageContainer>
-    </main>
+    <Suspense key={query} fallback={<LoadingSpinner />}>
+      <Images query={query} />
+    </Suspense>
   )
 }
