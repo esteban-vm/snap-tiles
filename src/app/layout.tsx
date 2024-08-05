@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import localFont from 'next/font/local'
-import { Navigation } from '@/containers'
+import { NavigationContainer } from '@/containers'
 import { clsx } from '@/utils'
 
 export const metadata: Metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang='en'>
       <body>
         <main className={clsx('relative min-h-screen w-full', redditSans.variable)}>
-          <Navigation />
+          <NavigationContainer />
           {children}
         </main>
       </body>
