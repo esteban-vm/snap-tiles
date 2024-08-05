@@ -2,7 +2,7 @@ import { ImageCard, ImageGrid, ImageSlider } from '@/components'
 import { SliderContextProvider } from '@/contexts'
 import { Api, getPlaceholderImage } from '@/utils'
 
-export default async function Images({ query }: { query?: string }) {
+export default async function ImagesContainer({ query }: { query?: string }) {
   const images = await Api.getImages(query)
   const slides = await Api.getSlides(images)
 
