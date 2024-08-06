@@ -1,26 +1,21 @@
-import { ImageCard, ImageGrid, ImageSlider } from '@/components'
-import { SliderContextProvider } from '@/contexts'
-import { Api, getPlaceholderImage } from '@/utils'
+'use client'
 
-export default async function ImagesContainer({ query }: { query?: string }) {
-  const images = await Api.getImages(query)
-  const slides = await Api.getSlides(images)
+import { ImageCard, ImageGrid, ImageSlider, LoadingSpinner } from '@/components'
+import { SlidesContextProvider, useImagesContext } from '@/contexts'
 
-  const cards = await Promise.all(
-    images.map(async (image, index) => {
-      const placeholder = await getPlaceholderImage(image.webformatURL)
-      return <ImageCard key={image.id} index={index} placeholder={placeholder} {...image} />
-    })
-  )
+export default function Images() {
+  const { images, isLoading } = useImagesContext()
 
-  if (cards.length === 0) return null
+  if (isLoading) return <LoadingSpinner />
 
   return (
     <ImageGrid>
-      <SliderContextProvider>
-        {cards}
-        <ImageSlider slides={slides} />
-      </SliderContextProvider>
+      <SlidesContextProvider images={images}>
+        {images.map((image, index) => (
+          <ImageCard key={image.id} index={index} {...image} />
+        ))}
+        <ImageSlider />
+      </SlidesContextProvider>
     </ImageGrid>
   )
 }

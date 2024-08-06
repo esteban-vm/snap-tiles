@@ -3,6 +3,7 @@ declare global {
     interface ProcessEnv {
       API_KEY: string
       API_URL: string
+      LOCAL_API_URL: string
     }
   }
 
@@ -10,10 +11,10 @@ declare global {
     interface ApiResponse {
       total: number
       totalHits: number
-      hits: ImageData[]
+      hits: ApiImageData[]
     }
 
-    interface ImageData {
+    interface ApiImageData {
       id: number
       pageURL: string
       type: string
@@ -36,6 +37,10 @@ declare global {
       user_id: number
       user: string
       userImageURL: string
+    }
+
+    interface ImageData extends ApiImageData {
+      placeholder: string
     }
   }
 }

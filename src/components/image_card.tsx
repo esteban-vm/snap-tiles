@@ -3,7 +3,7 @@
 import type { ImageData } from '@/types'
 import Image from 'next/image'
 import { FaEye, FaHeart } from 'react-icons/fa6'
-import { useSliderContext } from '@/contexts'
+import { useSlidesContext } from '@/contexts'
 
 interface ImageCardProps extends ImageData {
   index: number
@@ -22,7 +22,7 @@ export default function ImageCard({
   webformatHeight,
   webformatWidth,
 }: ImageCardProps) {
-  const { show } = useSliderContext()
+  const { show } = useSlidesContext()
 
   return (
     <div className='group card h-96 w-auto border border-base-200 bg-base-100 shadow-xl'>
