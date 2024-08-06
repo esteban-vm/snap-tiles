@@ -1,13 +1,14 @@
 import type { ApiResponse, ImageData } from '@/types'
 import type { AxiosRequestConfig } from 'axios'
 import axios from 'axios'
+import { API_KEY, API_URL } from '@/constants'
 import { getPlaceholderImage } from '@/utils'
 
 const apiConfig: AxiosRequestConfig = {
-  baseURL: process.env.API_URL,
+  baseURL: API_URL,
   timeout: 5_000,
   params: {
-    key: process.env.API_KEY,
+    key: API_KEY,
     orientation: 'horizontal',
     safesearch: true,
   },

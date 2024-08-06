@@ -2,6 +2,7 @@ import type { ImageData } from '@/types'
 import type { ReactNode } from 'react'
 import axios from 'axios'
 import { createContext, useContext, useEffect, useState } from 'react'
+import { NEXT_PUBLIC_API_URL } from '@/constants'
 
 const ImagesContext = createContext<ImagesContextImpl>(null!)
 
@@ -15,7 +16,7 @@ export function ImagesContextProvider({ query, ...rest }: ImagesContextProps) {
         setIsLoading(true)
 
         const response = await axios.get<ImageData[]>('/api/images', {
-          baseURL: process.env.LOCAL_API_URL,
+          baseURL: NEXT_PUBLIC_API_URL,
           params: { query },
         })
 

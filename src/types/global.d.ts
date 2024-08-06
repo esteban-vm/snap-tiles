@@ -3,7 +3,7 @@ declare global {
     interface ProcessEnv {
       API_KEY: string
       API_URL: string
-      LOCAL_API_URL: string
+      NEXT_PUBLIC_API_URL: string
     }
   }
 
