@@ -6,6 +6,7 @@ import { useId } from 'react'
 import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { useDebouncedCallback } from 'use-debounce'
 import { useImagesContext } from '@/contexts'
+import { LoadingSpinner } from '@/shared'
 
 export default function SearchBox() {
   const id = useId()
@@ -31,7 +32,7 @@ export default function SearchBox() {
       <label className='input input-bordered flex w-full items-center' htmlFor={id}>
         <input
           autoComplete='off'
-          className='peer w-full placeholder:italic placeholder:opacity-70'
+          className='peer w-full italic placeholder:opacity-70'
           defaultValue={searchParams.get('query')?.toString()}
           disabled={isLoading}
           id={id}
@@ -40,7 +41,11 @@ export default function SearchBox() {
           type='search'
           onChange={(event) => handleSearch(event.target.value)}
         />
-        <FaMagnifyingGlass className='hidden fill-current opacity-50 peer-placeholder-shown:inline' />
+        {!isLoading ? (
+          <FaMagnifyingGlass className='hidden fill-current opacity-50 peer-placeholder-shown:inline' />
+        ) : (
+          <LoadingSpinner className='loading-md relative opacity-50' />
+        )}
       </label>
     </div>
   )
