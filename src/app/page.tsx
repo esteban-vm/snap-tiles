@@ -1,13 +1,13 @@
-import { Suspense } from 'react'
-import { LoadingSpinner } from '@/components'
-import { ImagesContainer } from '@/containers'
+import { Images, Navigation } from '@/containers'
+import { ImagesContextProvider } from '@/contexts'
 
 export default async function Home({ searchParams }: { searchParams?: { query?: string } }) {
   const query = searchParams?.query
 
   return (
-    <Suspense key={query} fallback={<LoadingSpinner />}>
-      <ImagesContainer query={query} />
-    </Suspense>
+    <ImagesContextProvider query={query}>
+      <Navigation />
+      <Images />
+    </ImagesContextProvider>
   )
 }

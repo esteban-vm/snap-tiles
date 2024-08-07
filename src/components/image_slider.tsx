@@ -1,14 +1,14 @@
 'use client'
 
-import type { SlideImage } from 'yet-another-react-lightbox'
-import { FaChevronLeft, FaChevronRight, FaMagnifyingGlassMinus, FaMagnifyingGlassPlus, FaXmark } from 'react-icons/fa6'
+import * as Icons from 'react-icons/fa6'
 import { Lightbox } from 'yet-another-react-lightbox'
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'
-import { useSliderContext } from '@/contexts'
+import { useSlidesContext } from '@/contexts'
+import { Loader } from '@/shared'
 import { clsx } from '@/utils'
 
-export default function ImageSlider(props: { slides: SlideImage[] }) {
-  const { currentIndex, hide, isOpen } = useSliderContext()
+export default function ImageSlider() {
+  const { slides, currentIndex, hide, isOpen } = useSlidesContext()
   const iconClasses = clsx('size-7 transition-all active:scale-90 hover:opacity-70')
 
   return (
@@ -18,15 +18,16 @@ export default function ImageSlider(props: { slides: SlideImage[] }) {
       index={currentIndex}
       open={isOpen}
       plugins={[Zoom]}
+      slides={slides}
       zoom={{ maxZoomPixelRatio: 2 }}
       render={{
-        iconClose: () => <FaXmark className={clsx(iconClasses, 'text-secondary')} />,
-        iconNext: () => <FaChevronRight className={clsx(iconClasses, 'text-success')} />,
-        iconPrev: () => <FaChevronLeft className={clsx(iconClasses, 'text-success')} />,
-        iconZoomIn: () => <FaMagnifyingGlassPlus className={clsx(iconClasses, 'size-6')} />,
-        iconZoomOut: () => <FaMagnifyingGlassMinus className={clsx(iconClasses, 'mx-2 size-6')} />,
+        iconClose: () => <Icons.FaXmark className={clsx(iconClasses, 'text-secondary')} />,
+        iconNext: () => <Icons.FaChevronRight className={clsx(iconClasses, 'text-success')} />,
+        iconPrev: () => <Icons.FaChevronLeft className={clsx(iconClasses, 'text-success')} />,
+        iconZoomIn: () => <Icons.FaMagnifyingGlassPlus className={clsx(iconClasses, 'size-6')} />,
+        iconZoomOut: () => <Icons.FaMagnifyingGlassMinus className={clsx(iconClasses, 'mx-2 size-6')} />,
+        iconLoading: () => <Loader size='3rem' />,
       }}
-      {...props}
     />
   )
 }

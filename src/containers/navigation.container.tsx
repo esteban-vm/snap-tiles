@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { AppLogo, NavBar, SearchBox } from '@/components'
 
-export default function NavigationContainer() {
+export default function Navigation() {
   return (
     <NavBar>
       <AppLogo />
