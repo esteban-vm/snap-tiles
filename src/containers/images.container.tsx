@@ -2,13 +2,13 @@
 
 import { ImageCard, ImageGrid, ImageSlider } from '@/components'
 import { SlidesContextProvider, useImagesContext } from '@/contexts'
-import { LoadingSpinner } from '@/shared'
+import { Loader } from '@/shared'
 
 export default function Images() {
   const { images, isLoading } = useImagesContext()
 
   if (isLoading) {
-    return <LoadingSpinner className='loading-lg absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2' />
+    return <Loader cssOverride={{ marginTop: '1.75rem' }} size='4.5rem' />
   }
 
   return (

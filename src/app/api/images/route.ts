@@ -17,6 +17,8 @@ const apiConfig: AxiosRequestConfig = {
 const apiInstance = axios.create(apiConfig)
 
 export async function GET(request: Request) {
+  // await new Promise((resolve) => setTimeout(resolve, 30_000))
+
   const url = new URL(request.url)
   const query = url.searchParams.get('query')
 

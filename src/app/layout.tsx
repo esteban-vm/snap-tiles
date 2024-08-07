@@ -14,7 +14,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang='en'>
       <body>
-        <main className={clsx('relative min-h-screen w-full', redditSans.variable)}>{children}</main>
+        <main className={clsx('flex min-h-screen w-full flex-col items-center justify-start', redditSans.variable)}>
+          {children}
+        </main>
       </body>
     </html>
   )

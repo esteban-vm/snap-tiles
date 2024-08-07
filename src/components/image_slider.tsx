@@ -4,6 +4,7 @@ import * as Icons from 'react-icons/fa6'
 import { Lightbox } from 'yet-another-react-lightbox'
 import Zoom from 'yet-another-react-lightbox/plugins/zoom'
 import { useSlidesContext } from '@/contexts'
+import { Loader } from '@/shared'
 import { clsx } from '@/utils'
 
 export default function ImageSlider() {
@@ -25,6 +26,7 @@ export default function ImageSlider() {
         iconPrev: () => <Icons.FaChevronLeft className={clsx(iconClasses, 'text-success')} />,
         iconZoomIn: () => <Icons.FaMagnifyingGlassPlus className={clsx(iconClasses, 'size-6')} />,
         iconZoomOut: () => <Icons.FaMagnifyingGlassMinus className={clsx(iconClasses, 'mx-2 size-6')} />,
+        iconLoading: () => <Loader size='3rem' />,
       }}
     />
   )
