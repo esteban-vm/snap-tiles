@@ -16,21 +16,23 @@ const apiConfig: AxiosRequestConfig = {
 const apiInstance = axios.create(apiConfig)
 
 export async function GET(request: Request) {
-  // await new Promise((resolve) => setTimeout(resolve, 30_000))
+  try {
+    const url = new URL(request.url)
+    const query = url.searchParams.get('query')
 
-  const url = new URL(request.url)
-  const query = url.searchParams.get('query')
-
-  const response = await apiInstance.get<ApiResponse>('/api/', {
-    params: { q: query ? query : undefined },
-  })
-
-  const images = await Promise.all(
-    response.data.hits.map(async (image): Promise<ImageData> => {
-      const placeholder = await getPlaceholderImage(image.webformatURL)
-      return { ...image, placeholder }
+    const response = await apiInstance.get<ApiResponse>('/api/', {
+      params: { q: query ? query : undefined },
     })
-  )
 
-  return Response.json(images)
+    const images = await Promise.all(
+      response.data.hits.map(async (image): Promise<ImageData> => {
+        const placeholder = await getPlaceholderImage(image.webformatURL)
+        return { ...image, placeholder }
+      })
+    )
+
+    return Response.json(images, { status: 200 })
+  } catch (error) {
+    return Response.json(error, { status: 500 })
+  }
 }
