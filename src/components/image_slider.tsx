@@ -2,7 +2,7 @@
 
 import * as Icons from 'react-icons/fa6'
 import { Lightbox } from 'yet-another-react-lightbox'
-import { Fullscreen, Zoom } from 'yet-another-react-lightbox/plugins'
+import { Fullscreen, Slideshow, Thumbnails, Zoom } from 'yet-another-react-lightbox/plugins'
 import { useSlidesContext } from '@/contexts'
 import { Loader } from '@/shared'
 import { clsx } from '@/utils'
@@ -14,11 +14,13 @@ export default function ImageSlider() {
   return (
     <Lightbox
       close={hide}
-      controller={{ aria: true, closeOnBackdropClick: true }} 
+      controller={{ aria: true }}
       index={currentIndex}
       open={isOpen}
-      plugins={[Zoom, Fullscreen]}
+      plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
       slides={slides}
+      slideshow={{ delay: 5_000 }}
+      thumbnails={{ borderColor: 'oklch(var(--su))', border: 2 }}
       zoom={{ maxZoomPixelRatio: 2 }}
       render={{
         iconNext: () => <Icons.FaChevronRight className={clsx(iconClasses, 'size-7 text-success')} />,
@@ -28,6 +30,8 @@ export default function ImageSlider() {
         iconZoomOut: () => <Icons.FaMagnifyingGlassMinus className={clsx(iconClasses, 'mr-2 size-6')} />,
         iconEnterFullscreen: () => <Icons.FaMaximize className={clsx(iconClasses, 'mr-2 size-6 text-warning')} />,
         iconExitFullscreen: () => <Icons.FaMinimize className={clsx(iconClasses, 'mr-2 size-6 text-warning')} />,
+        iconSlideshowPlay: () => <Icons.FaCirclePlay className={clsx(iconClasses, 'mr-2 size-6 text-info')} />,
+        iconSlideshowPause: () => <Icons.FaCirclePause className={clsx(iconClasses, 'mr-2 size-6 text-info')} />,
         iconLoading: () => <Loader size='3rem' />,
       }}
     />

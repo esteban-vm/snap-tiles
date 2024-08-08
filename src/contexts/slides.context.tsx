@@ -17,6 +17,7 @@ export function SlidesContextProvider({ images, ...rest }: SlidesContextProps) {
           src: image.largeImageURL,
           height: image.imageHeight,
           width: image.imageWidth,
+          thumbnail: image.previewURL,
         })
 
         return slides
