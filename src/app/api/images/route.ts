@@ -6,7 +6,6 @@ import { getPlaceholderImage } from '@/utils'
 
 const apiConfig: AxiosRequestConfig = {
   baseURL: API_URL,
-  timeout: 5_000,
   params: {
     key: API_KEY,
     orientation: 'horizontal',
