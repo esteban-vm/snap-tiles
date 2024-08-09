@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import 'yet-another-react-lightbox/styles.css';
-@import "yet-another-react-lightbox/plugins/thumbnails.css";
+@import 'yet-another-react-lightbox/plugins/thumbnails.css';
 
 @layer base {
   * {
@@ -19,4 +19,12 @@
   img {
     @apply cursor-grab active:cursor-grabbing;
   }
+}
+
+.yarl__container {
+  @apply bg-primary-content;
+}
+
+.yarl__thumbnails_container {
+  @apply bg-secondary-content;
 }
