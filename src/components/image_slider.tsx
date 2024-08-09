@@ -20,7 +20,7 @@ export default function ImageSlider() {
       plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
       slides={slides}
       slideshow={{ delay: 5_000 }}
-      thumbnails={{ borderColor: 'oklch(var(--su))', border: 2 }}
+      thumbnails={{ borderColor: 'oklch(var(--su))', border: 2, vignette: false }}
       zoom={{ maxZoomPixelRatio: 2 }}
       render={{
         iconNext: () => <Icons.FaChevronRight className={clsx(iconClasses, 'size-7 text-success')} />,
