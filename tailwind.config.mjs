@@ -1,19 +1,11 @@
-import daisyui from 'daisyui'
-import tailwindFluid, { extract, fontSize, screens } from 'fluid-tailwind'
+import daisyui from 'daisyui' 
 // @ts-ignore
-import tailwindMobileHover from 'tailwind-mobile-hover'
-// @ts-ignore
-import tailwindTouch from 'tailwindcss-touch'
+import tailwindMobileHover from 'tailwind-mobile-hover' 
 
 /** @type {import("tailwindcss").Config} */
 const tailwindConfig = {
-  content: {
-    extract,
-    files: ['./src/(app|components|shared)/**/*.{js,ts,jsx,tsx,mdx}'],
-  },
+  content: ['./src/(app|components|shared)/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
-    screens,
-    fontSize,
     extend: {
       fontSize: {
         '2xs': '0.625rem',
@@ -23,7 +15,10 @@ const tailwindConfig = {
       },
     },
   },
-  plugins: [daisyui, tailwindFluid, tailwindTouch(), tailwindMobileHover],
+  plugins: [daisyui, tailwindMobileHover],
+  daisyui: {
+    themes: ['dark'],
+  },
 }
 
 export default tailwindConfig
