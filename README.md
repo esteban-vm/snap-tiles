@@ -5,6 +5,7 @@
 This is a **Next.js** website project to search images from Pixabay API made with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Main dependencies:
+
 - [Next.js](https://nextjs.org/ 'Next.js')
 - [DaisyUI](https://daisyui.com/)
 - [TypeScript](https://www.typescriptlang.org/ 'TypeScript')
@@ -13,7 +14,8 @@ This is a **Next.js** website project to search images from Pixabay API made wit
 - [Prettier](https://prettier.io/ 'Prettier')
 
 ## License:
+
 This project is released under the MIT [LICENSE](/LICENSE 'License')
 
-![Snap Tiles screenshot desktop](/screenshot.jpeg "Snap Tiles screenshot desktop")
-![Snap Tiles screenshot desktop](/screenshot2.jpeg "Snap Tiles screenshot desktop")
+![Snap Tiles screenshot 1](/screenshot.jpeg 'Snap Tiles screenshot 1')
+![Snap Tiles screenshot 2](/screenshot2.jpeg 'Snap Tiles screenshot 2')
