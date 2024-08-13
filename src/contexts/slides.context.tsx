@@ -10,7 +10,7 @@ export function SlidesContextProvider({ images, ...rest }: SlidesContextProps) {
   const [currentIndex, setCurrentIndex] = useState(-1)
 
   useEffect(() => {
-    const getSlides = cache(() => {
+    const getSlides = cache((images: ImageData[]) => {
       return images.reduce<SlideImage[]>((slides, image) => {
         slides.push({
           alt: image.tags,
@@ -24,7 +24,8 @@ export function SlidesContextProvider({ images, ...rest }: SlidesContextProps) {
       }, [])
     })
 
-    setSlides(getSlides())
+    const slides = getSlides(images)
+    setSlides(slides)
   }, [images])
 
   const value: SlidesContextImpl = {

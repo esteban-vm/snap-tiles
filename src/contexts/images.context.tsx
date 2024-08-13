@@ -23,6 +23,7 @@ export function ImagesContextProvider({ query, ...rest }: ImagesContextProps) {
 
         if (status >= 200 && status < 300) {
           setImages(data)
+          setIsError(false)
         }
       } catch {
         setImages([])
