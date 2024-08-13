@@ -17,5 +17,3 @@ This project is released under the MIT [LICENSE](/LICENSE 'License')
 
 ![Snap Tiles screenshot desktop](/screenshot.jpeg "Snap Tiles screenshot desktop")
 ![Snap Tiles screenshot desktop](/screenshot2.jpeg "Snap Tiles screenshot desktop")
-![Snap Tiles screenshot mobile](/screenshot3.png "Snap Tiles screenshot mobile")
-![Snap Tiles screenshot mobile](/screenshot4.png "Snap Tiles screenshot mobile")
