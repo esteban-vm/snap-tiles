@@ -1,26 +1,27 @@
 import type { ApiResponse, ImageData } from '@/types'
-import type { AxiosRequestConfig } from 'axios'
+import type { CreateAxiosDefaults } from 'axios'
 import axios from 'axios'
 import { API_KEY, API_URL } from '@/constants'
 import { getPlaceholderImage } from '@/utils'
 
-const apiConfig: AxiosRequestConfig = {
+const config: CreateAxiosDefaults = {
   baseURL: API_URL,
   params: {
     key: API_KEY,
-    orientation: 'horizontal',
     safesearch: true,
+    orientation: 'horizontal',
+    image_type: 'photo,illustration',
   },
 }
 
-const apiInstance = axios.create(apiConfig)
+const api = axios.create(config)
 
 export async function GET(request: Request) {
   try {
     const url = new URL(request.url)
     const query = url.searchParams.get('query')
 
-    const response = await apiInstance.get<ApiResponse>('/api/', {
+    const response = await api.get<ApiResponse>('/api/', {
       params: { q: query ? query : undefined },
     })
 

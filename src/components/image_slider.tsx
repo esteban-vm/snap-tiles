@@ -24,6 +24,7 @@ export default function ImageSlider() {
         iconNext: () => <Icons.LuChevronRight className='size-7 text-accent' />,
         iconPrev: () => <Icons.LuChevronLeft className='size-7 text-accent' />,
         iconClose: () => <Icons.LuXCircle className='size-6 text-secondary' />,
+        iconError: () => <Icons.LuImageOff className='size-8 text-error' />,
         iconZoomIn: () => <Icons.LuZoomIn className='mr-2 size-6' />,
         iconZoomOut: () => <Icons.LuZoomOut className='mr-2 size-6' />,
         iconEnterFullscreen: () => <Icons.LuExpand className='mr-2 size-6 text-warning' />,
