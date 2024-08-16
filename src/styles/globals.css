@@ -11,14 +11,14 @@
   }
 }
 
-.yarl__button {
-  @apply p-0 hover:opacity-70;
-}
-
 .yarl__slide {
-  img {
+  .yarl__slide_image {
     @apply cursor-grab active:cursor-grabbing;
   }
+}
+
+.yarl__slide_image {
+  @apply bg-primary;
 }
 
 .yarl__container {
@@ -27,4 +27,29 @@
 
 .yarl__thumbnails_container {
   @apply bg-secondary-content;
+}
+
+.yarl__thumbnails_thumbnail {
+  @apply border-accent bg-primary-content;
+
+  &.yarl__thumbnails_thumbnail_active {
+    @apply border-primary;
+  }
+}
+
+.yarl__toolbar {
+  @apply gap-1 p-1;
+
+  .yarl__button {
+    @apply btn btn-sm;
+
+    svg {
+      @apply size-4 text-accent;
+    }
+  }
+}
+
+.yarl__navigation_prev,
+.yarl__navigation_next {
+  @apply p-0 hover:opacity-80;
 }
