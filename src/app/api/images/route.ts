@@ -10,7 +10,6 @@ const config: CreateAxiosDefaults = {
     key: API_KEY,
     safesearch: true,
     orientation: 'horizontal',
-    image_type: 'photo,illustration',
   },
 }
 
