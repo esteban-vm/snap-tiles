@@ -17,5 +17,5 @@ This is a **Next.js** website project to search images from Pixabay API made wit
 
 This project is released under the MIT [LICENSE](/LICENSE 'License')
 
-![Snap Tiles screenshot 1](/screenshot.jpeg 'Snap Tiles screenshot 1')
-![Snap Tiles screenshot 2](/screenshot2.jpeg 'Snap Tiles screenshot 2')
+![Snap Tiles screenshot 1](/screenshot_main.jpeg 'Snap Tiles screenshot 1')
+![Snap Tiles screenshot 2](/screenshot_slider.jpeg 'Snap Tiles screenshot 2')
