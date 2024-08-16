@@ -9,6 +9,10 @@
   * {
     @apply font-reddit-sans;
   }
+
+  html {
+    @apply scroll-smooth;
+  }
 }
 
 .yarl__slide {
