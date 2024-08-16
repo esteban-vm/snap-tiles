@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import localFont from 'next/font/local'
+import { ScrollToTop } from '@/components'
 import { clsx } from '@/utils'
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <main className={clsx('flex min-h-screen w-full flex-col items-center justify-start', redditSans.variable)}>
           {children}
+          <ScrollToTop />
         </main>
       </body>
     </html>
