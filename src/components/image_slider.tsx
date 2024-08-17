@@ -4,7 +4,7 @@ import * as Icons from 'react-icons/lu'
 import { Lightbox } from 'yet-another-react-lightbox'
 import { Download, Fullscreen, Slideshow, Thumbnails, Zoom } from 'yet-another-react-lightbox/plugins'
 import { useSlidesContext } from '@/contexts'
-import { Loader } from '@/shared'
+import { LoadingSpinner } from '@/shared'
 
 export default function ImageSlider() {
   const { slides, currentIndex, hide, isOpen } = useSlidesContext()
@@ -32,7 +32,7 @@ export default function ImageSlider() {
         iconExitFullscreen: () => <Icons.LuShrink />,
         iconSlideshowPlay: () => <Icons.LuPlay />,
         iconSlideshowPause: () => <Icons.LuPause />,
-        iconLoading: () => <Loader size='3rem' />,
+        iconLoading: () => <LoadingSpinner size='3rem' />,
       }}
     />
   )

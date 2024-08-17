@@ -3,13 +3,13 @@
 import { FaFaceSadTear } from 'react-icons/fa6'
 import { ImageCard, ImageGrid, ImageSlider } from '@/components'
 import { SlidesContextProvider, useImagesContext } from '@/contexts'
-import { Loader } from '@/shared'
+import { LoadingSpinner } from '@/shared'
 
 export default function Images() {
   const { images, isError, isLoading } = useImagesContext()
 
   if (isLoading) {
-    return <Loader cssOverride={{ marginTop: '1.75rem' }} size='4.5rem' />
+    return <LoadingSpinner cssOverride={{ marginTop: '1.75rem' }} size='4.5rem' />
   }
 
   if (isError) {
